@@ -123,9 +123,10 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>Reservation System</h1>
+      <h1>Hospital Reservation System</h1>
      <div className='status-container'>
      <div className="room-status">
+     <h3>Rooms</h3>
         <p>Normal Rooms: {normalRooms}</p>
         <p>Oxygen Rooms: {oxygenRooms}</p>
         <p>ICU Rooms: {ICURooms}</p>
@@ -133,8 +134,10 @@ const App = () => {
 
       </div>
       <div className="equipment-status">
+        <h3>Beds</h3>
         <p>Normal Beds: {FlatBeds}</p>
         <p>Recliner Beds: {reclinerBeds}</p>
+        <h3 >Equipment</h3>
         <p>Ventilators: {ventilators}</p>
         <p>Oxygen Cylinders: {oxygenCylinders}</p>
         <p>Non Rebreather Masks: {nonRebreatherMasks}</p>
@@ -156,4 +159,3 @@ const App = () => {
 };
 
 export default App;
- 
