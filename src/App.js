@@ -45,44 +45,49 @@ const App = () => {
     if (roomType === 'ICU') {
       if (ICURooms > 0) {
         setICURooms(ICURooms - 1);
+        if(ventilators > 0 && oxygenCylinders > 0 && reclinerBeds > 0){
+
         setVentilators(ventilators - 1);
         setOxygenCylinders(oxygenCylinders - 1);
         setReclinerBeds(reclinerBeds - 1);
-        if(ventilators > 0 || oxygenCylinders > 0 || reclinerBeds > 0){
         setReservationMessage(`01 ICU room (with 1 ventilator + 1 oxygen cylinder + 1 recliner bed) reserved.`);
         }else{
           if(ventilators <= 0){
+            //popup
+
+
             alert("ventilators are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to ventilators unavailability');
           }else if(oxygenCylinders<=0){
             alert("oxygen cylinders are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to oxygen cylinders unavailability');
           }else if(reclinerBeds<=0){
             alert("recliner beds are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to recliner beds unavailability');
           }
         }
       } else {
         setReservationMessage('Sorry, no ICU rooms could be reserved.');
       }
     } else if (roomType === 'Oxygen') {
-      if (oxygenRooms > 0) {
+      if (oxygenRooms > 0 ) {
         setOxygenRooms(oxygenRooms - 1);
+        if(FlatBeds>0 && oxygenCylinders>0 && nonRebreatherMasks>0){
+
         setOxygenCylinders(oxygenCylinders - 2);
         setReclinerBeds(reclinerBeds - 1);
         setNonRebreatherMasks(nonRebreatherMasks - 2);
-        if(FlatBeds>0 || oxygenCylinders>0 || nonRebreatherMasks>0){
         setReservationMessage(`01 Oxygen room (2 oxygen cylinder + 1 recliner bed + 2 non rebreather masks) reserved.`);
         }else{
           if(FlatBeds<=0){
             alert("flat beds are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to flat beds unavailability');
           }else if(oxygenCylinders<=0){
             alert("oxygen cylinders are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to oxygen cylinders unavailability');
           }else if(nonRebreatherMasks<=0){
             alert("non rebreather masks are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to non rebreather masks unavailability');
           }
         
         }
@@ -92,19 +97,19 @@ const App = () => {
     } else if (roomType === 'Normal') {
       if (normalRooms > 0) {
         setNormalRooms(normalRooms - 1);
+        if(FlatBeds>0 && normalMasks>0){
+          
         setFlatBeds(FlatBeds - 1);
         setNormalMasks(normalMasks - 2);
-        if(FlatBeds>0 || normalMasks>0){
-
           setReservationMessage(`01 Normal room (1 normal bed + 2 normal masks ) reserved.`);
         }else{
           if(FlatBeds<=0){
 
             alert("flat beds are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to flat beds unavailability');
           }else if(normalMasks<=0){
             alert("normal masks are not available so room cant be reserved")
-            setReservationMessage('Sorry, no ICU rooms could be reserved.');
+            setReservationMessage('Sorry, no ICU rooms could be reserved. due to normal masks unavailability');
           }
         }
       } else {
